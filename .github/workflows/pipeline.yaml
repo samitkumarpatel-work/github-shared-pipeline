@@ -2,14 +2,21 @@ name: Pipeline
 
 on:
   workflow_call:
+    inputs:
+      name:
+        required: false
+        default: "John Doe"
+      deployTo:
+        required: false
+        default: "dev"
 jobs:
   build:
     uses: ./.github/workflows/build.yaml
     secrets: inherit
     with:
-      name: "Samit"
+      name: ${{ inputs.name }}
   deploy:
     uses: ./.github/workflows/deploy.yaml
     secrets: inherit
     with:
-      deployTo: "dev"
+      deployTo: ${{ inputs.deployTo }}

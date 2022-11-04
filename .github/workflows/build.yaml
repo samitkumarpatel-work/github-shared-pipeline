@@ -6,7 +6,7 @@ on:
         description: 'Name'
         default: "John Doe"
         required: false
-        type: boolean
+        type: string
 jobs:
   build:
     name: Build

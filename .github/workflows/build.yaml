@@ -14,4 +14,4 @@ jobs:
     steps:
     - run: |
         echo 'Hello Mr. ${{ inputs.name }}'
-        ls al
+        ls -al

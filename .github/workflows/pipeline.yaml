@@ -14,9 +14,9 @@ jobs:
     uses: ./.github/workflows/build.yaml
     secrets: inherit
     with:
-      name: ${{ inputs.name }}
+      name: "Hello"
   deploy:
     uses: ./.github/workflows/deploy.yaml
     secrets: inherit
     with:
-      deployTo: ${{ inputs.deployTo }}
+      deployTo: "dev"

@@ -2,13 +2,6 @@ name: Pipeline
 
 on:
   workflow_call:
-    inputs:
-      name:
-        required: false
-        default: "John Doe"
-      deployTo:
-        required: false
-        default: "dev"
 jobs:
   build:
     uses: ./.github/workflows/build.yaml

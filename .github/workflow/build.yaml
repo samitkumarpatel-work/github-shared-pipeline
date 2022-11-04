@@ -1,0 +1,17 @@
+name: Build and push
+on:
+  workflow_call:
+    inputs:
+      name:
+        description: 'Name'
+        default: "John Doe"
+        required: false
+        type: boolean
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo 'Hello Mr. ${{ inputs.name }}'
+        ls al

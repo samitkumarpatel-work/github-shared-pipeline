@@ -1,0 +1,10 @@
+name: Docker Traditional Build
+on:
+  workflow_call:
+    
+jobs:
+  docker-traditional-build:
+    name: Docker Build
+    runs-on: ubuntu-latest
+    steps:
+    - run: docker images

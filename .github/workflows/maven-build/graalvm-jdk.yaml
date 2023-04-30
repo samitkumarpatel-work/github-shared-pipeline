@@ -1,0 +1,27 @@
+name: Graalvm JDK
+on:
+  workflow_call:
+    inputs:
+      javaVersion:
+        description: 'Graal VM JDK version'
+        default: "17"
+        required: false
+        type: string
+jobs:
+  graalvm-jdk:
+    name: Setup Graalvm JDK
+    runs-on: ubuntu-latest
+    steps:
+    - uses: graalvm/setup-graalvm@v1
+      with:
+        version: 'latest'
+        java-version: ${{ inputs.javaVersion }}
+        components: 'native-image'
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Example step
+      run: |
+        echo "GRAALVM_HOME: $GRAALVM_HOME"
+        echo "JAVA_HOME: $JAVA_HOME"
+        java --version
+        gu --version
+        native-image --version

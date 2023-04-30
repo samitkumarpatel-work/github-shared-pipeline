@@ -8,24 +8,12 @@ on:
         required: false
         type: string
 jobs:
-  build:
+  jdk:
     name: Build
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - run: |
-        echo 'Hello Mr. ${{ inputs.name }}'
-        ls -al
-    - name: Checkout shared repo
-      uses: actions/checkout@v3
-      with:
-        repository: samit-maersk/github-shared-pipeline
-        path: tools
-    - run: |
-        ls -al
-        ls -al tools
-    - uses: actions/github-script@v6
-      with:
-        script: |
-          const script = require('./tools/.github/workflows/cluster.js')
-          console.log(script({github, context}))
+    uses: ./.github/workflows/maven-build/graalvm-jdk.yaml
+    secrets: inherit
+  docker:
+    name: Build
+    uses: ./.github/workflows/docker-build/traditional.yaml
+    secrets: inherit
+    

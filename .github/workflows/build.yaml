@@ -10,10 +10,10 @@ on:
 jobs:
   jdk:
     name: Build
-    uses: ./.github/workflows/maven-build/graalvm-jdk.yaml
+    uses: ./.github/workflows/graalvm-jdk.yaml
     secrets: inherit
   docker:
     name: Build
-    uses: ./.github/workflows/docker-build/traditional.yaml
+    uses: ./.github/workflows/traditional-build.yaml
     secrets: inherit
     
